@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 const morgan = require("morgan");
 const path = require("path");
@@ -15,6 +16,6 @@ app.get("*", (req, res) => {
 process.on("uncaughtException", (err) => {
   console.log(err);
 });
-app.listen(process.env.PORT, () => {
-  console.log(`server started on url: http://localhost:${process.env.PORT}/`);
+app.listen(PORT, () => {
+  console.log(`server started on url: http://localhost:${PORT}/`);
 });
