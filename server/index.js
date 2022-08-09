@@ -10,6 +10,9 @@ app.use(morgan("tiny"));
 
 app.use(express.static(path.resolve(__dirname, "..", "client", "build")));
 app.get("*", (req, res) => {
+  if(req.path === '/private'){
+    console.log('------------Protected Route---------');
+  }
   res.sendFile(path.resolve(__dirname, "..", "client", "build", "index.html"));
 });
 
